@@ -1,6 +1,8 @@
 ﻿# ApacheDL
 Download files from improperly configured Apache webservers.
 
+Requires .NET Framework 4.8
+
 ```
 ApacheDL -u [url]
   -d, --debug                Show debug messages
