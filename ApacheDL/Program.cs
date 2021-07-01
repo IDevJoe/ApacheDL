@@ -54,6 +54,7 @@ namespace ApacheDL
                 document.LoadHtml(resp);
                 var node = document.DocumentNode.SelectSingleNode("//table");
                 var rows = node.SelectNodes("tr");
+                var outDirRef = Directory.Exists(abs);
                 Console.WriteLine(rows.Count-3 + " rows.");
                 int crow = 0;
                 Uri uri1 = new Uri(Url);
@@ -67,7 +68,7 @@ namespace ApacheDL
                     var linkattr = htmlNode.SelectSingleNode("td[2]/a");
                     var fname = linkattr.GetAttributeValue("href", "#");
                     
-                    if (Directory.Exists(abs))
+                    if (outDirRef)
                     {
                         var destpth = Path.Combine(abs, fname);
                         if (File.Exists(destpth)) continue;
